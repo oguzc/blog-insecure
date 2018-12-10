@@ -1,0 +1,15 @@
+version: '3.4'
+
+services:
+  bloginsecure:
+    image: ${DOCKER_REGISTRY}bloginsecure
+    build:
+      context: .
+      dockerfile: BlogInsecure/Dockerfile
+
+  admin.api:
+    image: ${DOCKER_REGISTRY}adminapi
+    build:
+      context: .
+      dockerfile: Services/Admin.Api/Dockerfile
+

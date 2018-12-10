@@ -1,0 +1,39 @@
+version: '3.4'
+
+services:
+  admin.api:
+    image: adminapi:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_admin.api$
+    volumes:
+      - C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\Services\Admin.Api:/app
+      - C:\Users\OCeylan\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_admin.api$
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_admin.api$ bin/Debug/netcoreapp2.0/Admin.Api.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+
+  bloginsecure:
+    image: bloginsecure:dev
+    build:
+      target: base
+    environment:
+      - DOTNET_USE_POLLING_FILE_WATCHER=1
+      #- NUGET_FALLBACK_PACKAGES=$container_paths_to_fallback_packages_bloginsecure$
+    volumes:
+      - C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\BlogInsecure:/app
+      - C:\Users\OCeylan\vsdbg\vs2017u5:/remote_debugger:ro
+#$nuget_volume_mapping_bloginsecure$
+    entrypoint: tail -f /dev/null
+    labels:
+      com.microsoft.visualstudio.debuggee.program: "dotnet"
+      #com.microsoft.visualstudio.debuggee.arguments: " $debuggee_arguments_probing_paths_bloginsecure$ bin/Debug/netcoreapp2.0/BlogInsecure.dll"
+      com.microsoft.visualstudio.debuggee.workingdirectory: "/app"
+      com.microsoft.visualstudio.debuggee.killprogram: "/bin/bash -c \"if PID=$$(pidof -x dotnet); then kill $$PID; fi\""
+

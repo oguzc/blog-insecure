@@ -1,0 +1,11 @@
+{
+  "user": [
+    {
+      "id": 0,
+      "username": "aaa",
+      "password": "aaaaaa",
+      "passwordHash": "SBBWqXltM1e0cuhwnaU9JA0jE+pFtQ5tQnfXeWsAeLdwW/TwJLaeUCHeAqYpbnRUOVu4cUm/YNDi6QOL8P6MqQ==",
+      "passwordSalt": "P/r9hHyj2wN2ZY37KYIxNY0RFggjRA5g0IpJ9Kt1MCNj0xDreYfIDEaWgiqhJXEFVpG4pG4lB8hGSifIeAiF2RzyMblA0gPXib+obgR7o0YLYEuvnHNaib+n/Sp0U7GmqSZDYIYjSFTIgt6Cs996pyQkNX7xCnlgVMvHOlChAQU="
+    }
+  ]
+}

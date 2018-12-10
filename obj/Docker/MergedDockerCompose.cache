@@ -1,0 +1,31 @@
+services:
+  admin.api:
+    build:
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure
+      dockerfile: Services/Admin.Api/Dockerfile
+    container_name: admin.api
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+    image: adminapi
+    networks:
+      default: null
+    ports:
+    - published: 8081
+      target: 8081
+  bloginsecure:
+    build:
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure
+      dockerfile: BlogInsecure/Dockerfile
+    container_name: bloginsecure
+    depends_on:
+    - admin.api
+    environment:
+      ADMIN_API_ENDPOINT: http://admin.api:8081/api/
+      ASPNETCORE_ENVIRONMENT: Development
+    image: bloginsecure
+    networks:
+      default: null
+    ports:
+    - published: 8080
+      target: 80
+version: '3.4'

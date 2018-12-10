@@ -1,0 +1,23 @@
+version: '3.4'
+
+services:
+  bloginsecure:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ADMIN_API_ENDPOINT=http://admin.api:8081/api/
+    ports:
+    - "8080:80"
+    networks:
+    - default
+    container_name: bloginsecure
+    depends_on:
+      - admin.api
+
+  admin.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    ports:
+      - "8081:8081"
+    container_name: admin.api
+    networks:
+    - default
