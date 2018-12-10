@@ -1,6 +1,6 @@
-﻿namespace BlogInsecure.Models
+﻿namespace Blog.Api.Models
 {
-    public class BlogPostCommentDto
+    public class BlogPostComment
     {
         public int Id { get; set; }
         public int BlogPostId { get; set; }

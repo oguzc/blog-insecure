@@ -21,35 +21,31 @@ namespace BlogInsecure.Services
             _appSettings = appSettings;
         }
 
-        public BlogPostDetailViewModel GetBlogPostDetail(int blogPostId)
+        public async Task<BlogPostDetailViewModel> GetBlogPostDetail(int blogPostId)
         {
-            return new BlogPostDetailViewModel
-            {
-                Id=1,
-                Title="title 1",
-                Content="comment 1"
-            };
+            var requestMessage = _apiClient.CreateGetRequest($"{_appSettings.BlogApiUrl}{BasePath}/BlogPostDetail");
+            var response = await _apiClient.SendAsync(requestMessage);
+            string responseBody = await response.Content.ReadAsStringAsync();
+            var blogPostList = JsonConvert.DeserializeObject<BlogPostDetailViewModel>(responseBody);
+            return blogPostList;
         }
 
-        public BlogPostListViewModel GetBlogPostList()
+        public async Task<BlogPostListViewModel> GetBlogPostList()
         {
-            return new BlogPostListViewModel()
-            {
-                BlogPosts = new List<BlogPostDto>
-                {
-                    new BlogPostDto
-                    {
-                        Id=1,
-                        Title="title 1",
-                        Content="comment 1"
-                    }
-                }
-            };
+            var requestMessage = _apiClient.CreateGetRequest($"{_appSettings.BlogApiUrl}{BasePath}/BlogPostList");
+            var response = await _apiClient.SendAsync(requestMessage);
+            string responseBody = await response.Content.ReadAsStringAsync();
+            var blogPostList = JsonConvert.DeserializeObject<BlogPostListViewModel>(responseBody);
+            return blogPostList;
         }
 
-        public bool AddComment(BlogPostCommentDto blogPostCommentDto)
+        public async Task<bool> AddComment(BlogPostCommentDto blogPostCommentDto)
         {
-            return true;
+            var requestMessage = _apiClient.CreatePostRequest($"{_appSettings.BlogApiUrl}{BasePath}/AddComment", blogPostCommentDto);
+            var response = await _apiClient.SendAsync(requestMessage);
+            string responseBody = await response.Content.ReadAsStringAsync();
+            var isSuccess = JsonConvert.DeserializeObject<bool>(responseBody);
+            return isSuccess;
         }
     }
 }

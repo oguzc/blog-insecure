@@ -37,6 +37,7 @@ namespace BlogInsecure
             builder.RegisterInstance<IHttpClient>(new StandardHttpClient());
             var appSettings = Configuration.GetSection("ApiSettings").Get<AppSettings>();
             appSettings.AdminApiUrl = Environment.GetEnvironmentVariable("ADMIN_API_ENDPOINT");
+            appSettings.BlogApiUrl = Environment.GetEnvironmentVariable("BLOG_API_ENDPOINT");
             builder.RegisterInstance(appSettings);
 
             services.AddTransient<IAdminService, AdminService>();

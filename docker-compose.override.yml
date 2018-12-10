@@ -5,6 +5,7 @@ services:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
       - ADMIN_API_ENDPOINT=http://admin.api:8081/api/
+      - BLOG_API_ENDPOINT=http://blog.api:8082/api/
     ports:
     - "8080:80"
     networks:
@@ -25,7 +26,20 @@ services:
     depends_on:
     - sql.data
 
+  blog.api:
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=sql.data;User=sa;Password=Pass@word;Database=oguzc.blogposts;
+    ports:
+      - "8082:8082"
+    container_name: blog.api
+    networks:
+    - default
+    depends_on:
+    - sql.data
+
   sql.data:
     ports:
       - "5433:1433"
-    container_name: mssql-linux
+    container_name: sql.data
+

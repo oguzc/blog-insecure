@@ -37,7 +37,8 @@ namespace BlogInsecure.Controllers
             {
                 var blogPostDto = _mapper.Map<BlogPostDto>(model);
 
-                await _adminService.CreatePost(blogPostDto, username);
+                var token = HttpContext.Session.GetString(username);
+                await _adminService.CreatePost(blogPostDto, token);
 
                 return RedirectToAction("Index", new { username = username });
             }

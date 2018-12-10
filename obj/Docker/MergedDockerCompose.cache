@@ -15,6 +15,22 @@ services:
     ports:
     - published: 8081
       target: 8081
+  blog.api:
+    build:
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
+      dockerfile: Services/Blog.Api/Dockerfile
+    container_name: blog.api
+    depends_on:
+    - sql.data
+    environment:
+      ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: Server=sql.data;User=sa;Password=Pass@word;Database=oguzc.blogposts;
+    image: blogapi
+    networks:
+      default: null
+    ports:
+    - published: 8082
+      target: 8082
   bloginsecure:
     build:
       context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
@@ -25,6 +41,7 @@ services:
     environment:
       ADMIN_API_ENDPOINT: http://admin.api:8081/api/
       ASPNETCORE_ENVIRONMENT: Development
+      BLOG_API_ENDPOINT: http://blog.api:8082/api/
     image: bloginsecure
     networks:
       default: null

@@ -3,6 +3,7 @@ using System.Data.SqlClient;
 using System.Threading.Tasks;
 using Dapper;
 using Admin.Api.Models;
+using System;
 
 namespace Admin.Api.Services
 {
@@ -21,15 +22,23 @@ namespace Admin.Api.Services
         {
             using (var dbConnection = Connection)
             {
-                dbConnection.Open();
-                return await dbConnection.ExecuteAsync(
-                    "insert BlogPosts values(@id,@title,@content)",
-                    new
-                    {
-                        id = blogPost.Id,
-                        title = blogPost.Title,
-                        content = blogPost.Content
-                    });
+                try
+                {
+
+                    dbConnection.Open();
+                    return await dbConnection.ExecuteAsync(
+                        "insert BlogPosts values(@id,@title,@content)",
+                        new
+                        {
+                            id = blogPost.Id,
+                            title = blogPost.Title,
+                            content = blogPost.Content
+                        });
+                }
+                catch(Exception e)
+                {
+                    return 0;
+                }
             }
         }
     }

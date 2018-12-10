@@ -13,6 +13,12 @@ services:
       context: .
       dockerfile: Services/Admin.Api/Dockerfile
 
+  blog.api:
+    image: ${DOCKER_REGISTRY}blogapi
+    build:
+      context: .
+      dockerfile: Services/Blog.Api/Dockerfile
+
   sql.data:
     image: mssql-linux
     build:

@@ -40,3 +40,4 @@ C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\Services\Admin.Api\obj\De
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\Services\Admin.Api\obj\Debug\netcoreapp2.0\Admin.Api.AssemblyInfo.cs
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\Services\Admin.Api\obj\Debug\netcoreapp2.0\Admin.Api.dll
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\Services\Admin.Api\obj\Debug\netcoreapp2.0\Admin.Api.pdb
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\Services\Admin.Api\obj\Debug\netcoreapp2.0\Admin.Api.csprojAssemblyReference.cache

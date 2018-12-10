@@ -29,3 +29,4 @@ C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\ne
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.AssemblyInfo.cs
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.dll
 C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.pdb
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.csprojAssemblyReference.cache

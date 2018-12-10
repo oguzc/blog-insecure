@@ -29,20 +29,20 @@ namespace BlogInsecure.Controllers
             return View();
         }
 
-        public IActionResult BlogPosts()
+        public async Task<IActionResult> BlogPosts()
         {
-            var blogPostList = _blogPostService.GetBlogPostList();
+            var blogPostList = await _blogPostService.GetBlogPostList();
             return View(blogPostList);
         }
 
-        public IActionResult BlogPostDetail(int blogPostId)
+        public async Task<IActionResult> BlogPostDetail(int blogPostId)
         {
-            var blogPostDetail = _blogPostService.GetBlogPostDetail(blogPostId);
+            var blogPostDetail = await _blogPostService.GetBlogPostDetail(blogPostId);
             return View(blogPostDetail);
         }
 
         [HttpPost]
-        public IActionResult BlogPostDetail([FromForm]BlogPostDetailViewModel model)
+        public async Task<IActionResult> BlogPostDetail([FromForm]BlogPostDetailViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -50,7 +50,7 @@ namespace BlogInsecure.Controllers
                 var userDto = _mapper.Map<BlogPostCommentDto>(model);
 
                 // save
-                _blogPostService.AddComment(userDto);
+                await _blogPostService.AddComment(userDto);
                 return RedirectToAction("BlogPostDetail", new { blogPostId = model.Id });
             }
 

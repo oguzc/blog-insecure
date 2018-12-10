@@ -8,8 +8,8 @@ namespace BlogInsecure.Services
 {
     public interface IBlogPostService
     {
-        BlogPostListViewModel GetBlogPostList();
-        BlogPostDetailViewModel GetBlogPostDetail(int blogPostId);
-        bool AddComment(BlogPostCommentDto blogPostCommentDto);
+        Task<BlogPostListViewModel> GetBlogPostList();
+        Task<BlogPostDetailViewModel> GetBlogPostDetail(int blogPostId);
+        Task<bool> AddComment(BlogPostCommentDto blogPostCommentDto);
     }
 }
