@@ -1,37 +1,60 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
+using AutoMapper;
+using Microsoft.AspNetCore.Http;
+using BlogInsecure.Config;
 using BlogInsecure.Models;
+using BlogInsecure.Services;
+using System.Threading.Tasks;
 
 namespace BlogInsecure.Controllers
 {
     public class HomeController : Controller
     {
+        IBlogPostService _blogPostService;
+        private IMapper _mapper;
+        private readonly AppSettings _appSettings;
+
+        public HomeController(
+            IBlogPostService blogPostService,
+            IMapper mapper,
+            AppSettings appSettings)
+        {
+            _blogPostService = blogPostService;
+            _mapper = mapper;
+            _appSettings = appSettings;
+        }
+
         public IActionResult Index()
         {
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult BlogPosts()
         {
-            ViewData["Message"] = "Your application description page.";
-
-            return View();
+            var blogPostList = _blogPostService.GetBlogPostList();
+            return View(blogPostList);
         }
 
-        public IActionResult Contact()
+        public IActionResult BlogPostDetail(int blogPostId)
         {
-            ViewData["Message"] = "Your contact page.";
-
-            return View();
+            var blogPostDetail = _blogPostService.GetBlogPostDetail(blogPostId);
+            return View(blogPostDetail);
         }
 
-        public IActionResult Error()
+        [HttpPost]
+        public IActionResult BlogPostDetail([FromForm]BlogPostDetailViewModel model)
         {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
+            if (ModelState.IsValid)
+            {
+                // map dto to entity
+                var userDto = _mapper.Map<BlogPostCommentDto>(model);
+
+                // save
+                _blogPostService.AddComment(userDto);
+                return RedirectToAction("BlogPostDetail", new { blogPostId = model.Id });
+            }
+
+            return View(model);
         }
     }
 }

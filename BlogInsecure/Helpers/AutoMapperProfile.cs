@@ -11,6 +11,7 @@ namespace BlogInsecure.Helpers
             CreateMap<RegisterViewModel, UserDto>();
             CreateMap<UserDto, LoginViewModel>();
             CreateMap<LoginViewModel, UserDto>();
+            CreateMap<BlogPostDetailViewModel, BlogPostCommentDto>();
         }
     }
 }

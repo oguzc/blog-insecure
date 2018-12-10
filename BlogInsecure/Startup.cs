@@ -40,6 +40,7 @@ namespace BlogInsecure
             builder.RegisterInstance(appSettings);
 
             services.AddTransient<IAdminService, AdminService>();
+            services.AddTransient<IBlogPostService, BlogPostService>();
 
             builder.Populate(services);
             ApplicationContainer = builder.Build();

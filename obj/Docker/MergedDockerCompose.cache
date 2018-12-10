@@ -34,7 +34,7 @@ services:
   sql.data:
     build:
       context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
-      dockerfile: Dockerfile
+      dockerfile: Database/Dockerfile
     container_name: mssql-linux
     image: mssql-linux
     ports:

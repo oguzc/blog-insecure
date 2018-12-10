@@ -5,9 +5,9 @@ FROM microsoft/mssql-server-linux:2017-latest
 ENV SA_PASSWORD=Pass@word
 ENV ACCEPT_EULA=Y
 
-COPY entrypoint.sh entrypoint.sh
-COPY SqlCmdStartup.sh SqlCmdStartup.sh
-COPY SqlCmdScript.sql SqlCmdScript.sql
+COPY Database/entrypoint.sh entrypoint.sh
+COPY Database/SqlCmdStartup.sh SqlCmdStartup.sh
+COPY Database/SqlCmdScript.sql SqlCmdScript.sql
 
 # Grant permissions for the SqlCmdStartup.sh script to be executable
 RUN chmod +x ./SqlCmdStartup.sh
