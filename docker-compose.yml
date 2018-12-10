@@ -13,3 +13,8 @@ services:
       context: .
       dockerfile: Services/Admin.Api/Dockerfile
 
+  sql.data:
+    image: mssql-linux
+    build:
+      context: .
+      dockerfile: Database/Dockerfile

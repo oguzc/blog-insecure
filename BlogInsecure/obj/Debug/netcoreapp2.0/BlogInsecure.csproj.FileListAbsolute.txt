@@ -19,3 +19,13 @@ C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\BlogInsecure\obj\Debug\net
 C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.dll
 C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.pdb
 C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.csprojAssemblyReference.cache
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\bin\Debug\netcoreapp2.0\BlogInsecure.deps.json
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\bin\Debug\netcoreapp2.0\BlogInsecure.runtimeconfig.json
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\bin\Debug\netcoreapp2.0\BlogInsecure.runtimeconfig.dev.json
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\bin\Debug\netcoreapp2.0\BlogInsecure.dll
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\bin\Debug\netcoreapp2.0\BlogInsecure.pdb
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.csproj.CoreCompileInputs.cache
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.AssemblyInfoInputs.cache
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.AssemblyInfo.cs
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.dll
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\BlogInsecure\obj\Debug\netcoreapp2.0\BlogInsecure.pdb

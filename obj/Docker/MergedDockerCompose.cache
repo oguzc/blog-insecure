@@ -1,11 +1,14 @@
 services:
   admin.api:
     build:
-      context: C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
       dockerfile: Services/Admin.Api/Dockerfile
     container_name: admin.api
+    depends_on:
+    - sql.data
     environment:
       ASPNETCORE_ENVIRONMENT: Development
+      ConnectionString: Server=sql.data;User=sa;Password=Pass@word;Database=oguzc.blogposts;
     image: adminapi
     networks:
       default: null
@@ -14,7 +17,7 @@ services:
       target: 8081
   bloginsecure:
     build:
-      context: C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
       dockerfile: BlogInsecure/Dockerfile
     container_name: bloginsecure
     depends_on:
@@ -28,4 +31,13 @@ services:
     ports:
     - published: 8080
       target: 80
+  sql.data:
+    build:
+      context: C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure
+      dockerfile: Dockerfile
+    container_name: mssql-linux
+    image: mssql-linux
+    ports:
+    - published: 5433
+      target: 1433
 version: '3.4'

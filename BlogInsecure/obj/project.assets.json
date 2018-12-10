@@ -13213,11 +13213,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\BlogInsecure\\BlogInsecure\\BlogInsecure.csproj",
+      "projectUniqueName": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\blog-insecure\\BlogInsecure\\BlogInsecure.csproj",
       "projectName": "BlogInsecure",
-      "projectPath": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\BlogInsecure\\BlogInsecure\\BlogInsecure.csproj",
+      "projectPath": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\blog-insecure\\BlogInsecure\\BlogInsecure.csproj",
       "packagesPath": "C:\\Users\\OCeylan\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\BlogInsecure\\BlogInsecure\\obj\\",
+      "outputPath": "C:\\Users\\OCeylan\\Desktop\\SofwareSecurity\\blog-insecure\\BlogInsecure\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"

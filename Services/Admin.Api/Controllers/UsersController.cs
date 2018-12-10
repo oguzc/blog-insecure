@@ -5,6 +5,7 @@ using System.IdentityModel.Tokens.Jwt;
 using System.Text;
 using Microsoft.IdentityModel.Tokens;
 using System.Security.Claims;
+using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Admin.Api.Config;
 using Admin.Api.Helpers;
@@ -19,14 +20,18 @@ namespace Admin.Api.Controllers
     public class UsersController : Controller
     {
         private readonly IUserService _userService;
+        private readonly IBlogPostRepository _blogPostRepository;
         private IMapper _mapper;
         private readonly AppSettings _appSettings;
 
-        public UsersController(IUserService userService,
+        public UsersController(
+            IUserService userService,
+            IBlogPostRepository blogPostRepository,
             IMapper mapper,
             AppSettings appSettings)
         {
             _userService = userService;
+            _blogPostRepository = blogPostRepository;
             _mapper = mapper;
             _appSettings = appSettings;
         }
@@ -78,9 +83,9 @@ namespace Admin.Api.Controllers
         }
 
         [HttpPost]
-        public IActionResult CreatePost([FromBody]User value)
+        public async Task<IActionResult> CreatePost([FromBody]BlogPost value)
         {
-            //var token = await _userService.RegisterAsync(value);
+            await _blogPostRepository.AddBlogPost(value);
             return Ok();
         }
 

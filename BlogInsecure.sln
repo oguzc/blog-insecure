@@ -9,9 +9,15 @@ Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-co
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{9DDD44F8-853A-4D6B-9DAD-C88954A63BA8}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Databases", "Databases", "{457096CB-87D2-4EB9-8C86-7CE6F8609FA0}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Admin.Api", "Services\Admin.Api\Admin.Api.csproj", "{A5D680E4-7E73-4B38-BD97-8850DFDFC67C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Database", "Database", "{82D0CF4B-4D38-4008-BB52-3DC6344B9639}"
+	ProjectSection(SolutionItems) = preProject
+		Database\Dockerfile = Database\Dockerfile
+		Database\entrypoint.sh = Database\entrypoint.sh
+		Database\SqlCmdScript.sql = Database\SqlCmdScript.sql
+		Database\SqlCmdStartup.sh = Database\SqlCmdStartup.sh
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

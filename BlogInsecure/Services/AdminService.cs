@@ -44,5 +44,13 @@ namespace BlogInsecure.Services
             string responseBody = await response.Content.ReadAsStringAsync();
             return true;
         }
+
+        public async Task CreatePost(BlogPostDto blogPostDto, string token)
+        {
+            var requestMessage = _apiClient.CreatePostRequest($"{_appSettings.AdminApiUrl}{BasePath}/CreatePost", blogPostDto);
+            requestMessage.Headers.Add("Authorization", "Bearer " + token);
+            var response = await _apiClient.SendAsync(requestMessage);
+            string responseBody = await response.Content.ReadAsStringAsync();
+        }
     }
 }

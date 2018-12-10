@@ -32,6 +32,7 @@ namespace Admin.Api
             services.AddCors();
             services.AddMvc();
             services.AddAutoMapper();
+            services.AddScoped<IBlogPostRepository>(c => new BlogPostRepository(Configuration["ConnectionString"]));
 
             var builder = new ContainerBuilder();
             var appSettings = Configuration.GetSection("ApiSettings").Get<AppSettings>();

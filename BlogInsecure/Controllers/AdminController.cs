@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using AutoMapper;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using BlogInsecure.Config;
 using BlogInsecure.Models;
@@ -29,6 +28,21 @@ namespace BlogInsecure.Controllers
             var token = HttpContext.Session.GetString(username);
             await _adminService.CanCreatePost(token);
             return View();
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Index([FromForm]CreatePostViewModel model, string username)
+        {
+            if (ModelState.IsValid)
+            {
+                var blogPostDto = _mapper.Map<BlogPostDto>(model);
+
+                await _adminService.CreatePost(blogPostDto, username);
+
+                return RedirectToAction("Index", new { username = username });
+            }
+
+            return View(model);
         }
 
         public IActionResult Authenticate()

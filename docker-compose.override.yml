@@ -16,8 +16,16 @@ services:
   admin.api:
     environment:
       - ASPNETCORE_ENVIRONMENT=Development
+      - ConnectionString=Server=sql.data;User=sa;Password=Pass@word;Database=oguzc.blogposts;
     ports:
       - "8081:8081"
     container_name: admin.api
     networks:
     - default
+    depends_on:
+    - sql.data
+
+  sql.data:
+    ports:
+      - "5433:1433"
+    container_name: mssql-linux

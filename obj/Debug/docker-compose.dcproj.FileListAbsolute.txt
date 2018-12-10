@@ -1,2 +1,3 @@
 C:\MyProjects\SofwareSecurity\BlogInsecure\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
 C:\Users\OCeylan\Desktop\SofwareSecurity\BlogInsecure\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache
+C:\Users\OCeylan\Desktop\SofwareSecurity\blog-insecure\obj\Debug\docker-compose.dcproj.CoreCompileInputs.cache

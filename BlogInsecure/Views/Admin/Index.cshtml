@@ -1,7 +1,25 @@
-﻿
+﻿@model BlogInsecure.Models.CreatePostViewModel
 @{
-    ViewData["Title"] = "Index";
+    ViewData["Title"] = "Create New Blog Post";
 }
 
-<h2>Index</h2>
-
+<div class="row">
+    <div class="col-md-4">
+        <form method="post" class="loginForm">
+            <h4>Create New Blog Post</h4>
+            <hr />
+            <div asp-validation-summary="All" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Title"></label>
+                <input asp-for="Title" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="Content"></label>
+                <input asp-for="Content" class="form-control" />
+            </div>
+            <div class="form-group">
+                <button type="submit" class="form-control" value="Submit">Save</button>
+            </div>
+        </form>
+    </div>
+</div>
