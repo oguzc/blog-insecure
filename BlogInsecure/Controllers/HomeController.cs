@@ -26,7 +26,7 @@ namespace BlogInsecure.Controllers
 
         public IActionResult Index()
         {
-            return View();
+            return RedirectToAction("BlogPosts");
         }
 
         public async Task<IActionResult> BlogPosts()
@@ -47,10 +47,10 @@ namespace BlogInsecure.Controllers
             if (ModelState.IsValid)
             {
                 // map dto to entity
-                var userDto = _mapper.Map<BlogPostCommentDto>(model);
+                var blogPostCommentDto = _mapper.Map<BlogPostCommentDto>(model);
 
                 // save
-                await _blogPostService.AddComment(userDto);
+                await _blogPostService.AddComment(blogPostCommentDto);
                 return RedirectToAction("BlogPostDetail", new { blogPostId = model.Id });
             }
 

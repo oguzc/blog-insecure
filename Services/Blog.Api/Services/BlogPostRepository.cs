@@ -24,10 +24,9 @@ namespace Blog.Api.Services
             {
                 dbConnection.Open();
                 return await dbConnection.ExecuteAsync(
-                    "insert BlogPosts values(@id,@blogPostId,@comment)",
+                    "insert into BlogPostComments values(@blogPostId,@comment)",
                     new
                     {
-                        id = blogPostComment.Id,
                         blogPostId = blogPostComment.BlogPostId,
                         comment = blogPostComment.Comment
                     }) > 0;
@@ -49,6 +48,15 @@ namespace Blog.Api.Services
             {
                 dbConnection.Open();
                 return await dbConnection.QueryAsync<BlogPost>("SELECT * FROM BlogPosts");
+            }
+        }
+
+        public async Task<IEnumerable<BlogPostComment>> GetBlogPostCommentList(int blogPostId)
+        {
+            using (var dbConnection = Connection)
+            {
+                dbConnection.Open();
+                return await dbConnection.QueryAsync<BlogPostComment>("SELECT * FROM BlogPostComments where BlogPostId=@blogPostId", new { blogPostId = blogPostId });
             }
         }
     }

@@ -9,5 +9,6 @@ namespace Blog.Api.Services
         Task<IEnumerable<BlogPost>> GetBlogPostList();
         Task<BlogPost> GetBlogPostDetail(int blogPostId);
         Task<bool> AddComment(BlogPostComment blogPostComment);
+        Task<IEnumerable<BlogPostComment>> GetBlogPostCommentList(int blogPostId);
     }
 }

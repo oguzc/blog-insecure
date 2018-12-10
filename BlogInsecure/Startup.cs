@@ -26,7 +26,6 @@ namespace BlogInsecure
         // This method gets called by the runtime. Use this method to add services to the container.
         public IServiceProvider ConfigureServices(IServiceCollection services)
         {
-            services.AddCors();
             services.AddMvc();
             services.AddAutoMapper();
             services.AddSession(options => {
@@ -63,17 +62,6 @@ namespace BlogInsecure
             }
 
             app.UseStaticFiles();
-
-            // global cors policy
-            app.UseCors(x => x
-                .AllowAnyOrigin()
-                .AllowAnyMethod()
-                .AllowAnyHeader()
-                .AllowCredentials());
-
-            app.UseAuthentication();
-
-            app.UseForwardedHeaders();
 
             app.UseSession();
 

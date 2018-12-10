@@ -11,7 +11,11 @@ namespace BlogInsecure.Helpers
             CreateMap<RegisterViewModel, UserDto>();
             CreateMap<UserDto, LoginViewModel>();
             CreateMap<LoginViewModel, UserDto>();
-            CreateMap<BlogPostDetailViewModel, BlogPostCommentDto>();
+            CreateMap<BlogPostDetailViewModel, BlogPostCommentDto>()
+                .ForMember(x => x.Id, opt => opt.Ignore())
+                .ForMember(
+                    from => from.BlogPostId,
+                    to => to.MapFrom(m => m.Id));
         }
     }
 }

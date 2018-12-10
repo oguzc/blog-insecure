@@ -23,7 +23,7 @@ namespace BlogInsecure.Services
 
         public async Task<BlogPostDetailViewModel> GetBlogPostDetail(int blogPostId)
         {
-            var requestMessage = _apiClient.CreateGetRequest($"{_appSettings.BlogApiUrl}{BasePath}/BlogPostDetail");
+            var requestMessage = _apiClient.CreateGetRequest($"{_appSettings.BlogApiUrl}{BasePath}/BlogPostDetail?blogPostId={blogPostId}");
             var response = await _apiClient.SendAsync(requestMessage);
             string responseBody = await response.Content.ReadAsStringAsync();
             var blogPostList = JsonConvert.DeserializeObject<BlogPostDetailViewModel>(responseBody);
@@ -39,13 +39,11 @@ namespace BlogInsecure.Services
             return blogPostList;
         }
 
-        public async Task<bool> AddComment(BlogPostCommentDto blogPostCommentDto)
+        public async Task AddComment(BlogPostCommentDto blogPostCommentDto)
         {
             var requestMessage = _apiClient.CreatePostRequest($"{_appSettings.BlogApiUrl}{BasePath}/AddComment", blogPostCommentDto);
             var response = await _apiClient.SendAsync(requestMessage);
             string responseBody = await response.Content.ReadAsStringAsync();
-            var isSuccess = JsonConvert.DeserializeObject<bool>(responseBody);
-            return isSuccess;
         }
     }
 }

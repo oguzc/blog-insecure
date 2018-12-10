@@ -10,6 +10,6 @@ namespace BlogInsecure.Services
     {
         Task<BlogPostListViewModel> GetBlogPostList();
         Task<BlogPostDetailViewModel> GetBlogPostDetail(int blogPostId);
-        Task<bool> AddComment(BlogPostCommentDto blogPostCommentDto);
+        Task AddComment(BlogPostCommentDto blogPostCommentDto);
     }
 }

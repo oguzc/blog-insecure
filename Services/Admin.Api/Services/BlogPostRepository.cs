@@ -27,10 +27,9 @@ namespace Admin.Api.Services
 
                     dbConnection.Open();
                     return await dbConnection.ExecuteAsync(
-                        "insert BlogPosts values(@id,@title,@content)",
+                        "insert into BlogPosts values(@title,@content)",
                         new
                         {
-                            id = blogPost.Id,
                             title = blogPost.Title,
                             content = blogPost.Content
                         });

@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.Collections.Generic;
 
 namespace BlogInsecure.Models
 {
@@ -9,5 +10,13 @@ namespace BlogInsecure.Models
         public string Content { get; set; }
         [Required]
         public string Comment { get; set; }
+        public List<BlockPostCommentDto> BlockPostComments { get; set; }
+
+        public class BlockPostCommentDto
+        {
+            public int Id { get; set; }
+            public int BlogPostId { get; set; }
+            public string Comment { get; set; }
+        }
     }
 }

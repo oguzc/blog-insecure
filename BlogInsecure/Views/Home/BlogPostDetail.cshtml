@@ -28,10 +28,28 @@
         <div class="form-group">
             <label asp-for="Comment"></label>
             <input asp-for="Comment" class="form-control" />
+            <input asp-for="Id" hidden/>
         </div>
         <div class="form-group">
             <button type="submit" class="form-control" value="Submit">Add Comment</button>
         </div>
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Comments</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model.BlockPostComments)
+                {
+                    <tr>
+                        <td>
+                            @item.Comment
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
         <a asp-action="BlogPosts">Back to List</a>
     </div>
 </form>

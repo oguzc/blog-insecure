@@ -39,7 +39,11 @@ namespace Blog.Api.Controllers
         public async Task<IActionResult> BlogPostDetail(int blogPostId)
         {
             var blogPostDetail = await _blogPostRepository.GetBlogPostDetail(blogPostId);
-            return Ok(blogPostDetail);
+            var blogPostCommentList = await _blogPostRepository.GetBlogPostCommentList(blogPostDetail.Id);
+            var blogPostDetailDto = _mapper.Map<BlogPostDetailDto>(blogPostDetail);
+            blogPostDetailDto.BlockPostComments = blogPostCommentList.ToList();
+
+            return Ok(blogPostDetailDto);
         }
 
         [HttpPost]
