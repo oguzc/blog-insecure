@@ -29,6 +29,9 @@ namespace BlogInsecure
             services.AddCors();
             services.AddMvc();
             services.AddAutoMapper();
+            services.AddSession(options => {
+                options.IdleTimeout = TimeSpan.FromMinutes(10);
+            });
 
             var builder = new ContainerBuilder();
             builder.RegisterInstance<IHttpClient>(new StandardHttpClient());
@@ -67,6 +70,10 @@ namespace BlogInsecure
                 .AllowCredentials());
 
             app.UseAuthentication();
+
+            app.UseForwardedHeaders();
+
+            app.UseSession();
 
             app.UseMvc(routes =>
             {

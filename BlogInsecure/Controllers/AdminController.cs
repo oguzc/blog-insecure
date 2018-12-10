@@ -45,7 +45,7 @@ namespace BlogInsecure.Controllers
 
                 var authenticationDto = await _adminService.Authenticate(userDto);
                 HttpContext.Session.SetString(model.Username, authenticationDto.Token);
-                return RedirectToAction("Index", model.Username);
+                return RedirectToAction("Index", new { username = model.Username });
             }
 
             return View(model);
